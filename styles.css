@@ -17,7 +17,7 @@
 html {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(15px, 2vw, 20px);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -43,8 +43,13 @@ h1 {
   align-items: center;
 }
 
+.input-div label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 .input {
-  margin: 2rem 0 1rem 0;
+  margin: 1.5rem 0 1rem 0;
   width: min(70%, 350px);
   padding: 0.3rem;
   background: var(--surface-color);
@@ -86,22 +91,28 @@ input::-webkit-inner-spin-button {
   color: var(--accent-color);
 }
 
-.hidden {
-  display: none;
-  opacity: 0;
-}
-
 .output {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease, height 0.5s ease;
   display: flex;
   width: min(80%, 500px);
   font-size: 1.3rem;
   color: var(--add-accent-color);
   height: auto;
   justify-content: center;
-  opacity: 1;
-  transition: opacity 0.2s ease;
   font-weight: bold;
+  background: var(--surface-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
   padding: 1rem;
+  margin-top: 1rem;
+}
+
+.output.hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
 }
 
 .alert {

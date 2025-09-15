@@ -28,17 +28,16 @@ const inputCheck = (input) => {
   } else return true;
 };
 
-const separateNumber = (number) => {
-  let arr = number.toString().split("");
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] *= Math.pow(10, arr.length - 1 - i);
-  }
-  return (number = arr);
-};
-
-const arrToRoman = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = ROMAN_NUMERALS[arr[i]];
+const numberToRoman = (number) => {
+  let entries = Object.entries(ROMAN_NUMERALS).sort(
+    (a, b) => Number(b[0]) - Number(a[0])
+  );
+  let arr = [];
+  for (const entry of entries) {
+    while (number >= Number(entry[0])) {
+      number -= Number(entry[0]);
+      arr.push(entry[1]);
+    }
   }
   return arr.join("");
 };
@@ -47,9 +46,9 @@ const convertInputToRoman = (input) => {
   if (!inputCheck(input)) {
     return;
   }
-  let inputArr = separateNumber(input);
-  input = arrToRoman(inputArr);
-  output.innerHTML = `<p>${input}</p>`;
+  let arr = numberToRoman(input);
+  output.classList.remove("hidden");
+  output.innerHTML = `<p>${arr}</p>`;
 };
 
 convertBtn.addEventListener("click", () => {
