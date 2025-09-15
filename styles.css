@@ -88,6 +88,7 @@ input::-webkit-inner-spin-button {
 
 .hidden {
   display: none;
+  opacity: 0;
 }
 
 .output {
@@ -96,4 +97,13 @@ input::-webkit-inner-spin-button {
   font-size: 1.25rem;
   color: var(--add-accent-color);
   height: auto;
+  text-align: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  padding: 1rem;
+}
+
+.alert {
+  color: var(--alert-color);
 }
