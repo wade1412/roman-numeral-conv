@@ -4,7 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width = device-width, initial scale = 1.0" />
     <link rel="stylesheet" href="./styles.css" />
+    <title>Roman Numerals Converter</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <h1>Roman Numerals Converter</h1>
+      <div class="input-div">
+        <label for="number">Input the number that you want to convert:</label>
+        <input
+          id="number"
+          type="number"
+          class="input"
+          required
+          placeholder="99"
+        />
+        <button id="convert-btn" class="button">Convert</button>
+      </div>
+      <div class="output hidden"></div>
+    </div>
+  </body>
   <script src="./script.js"></script>
 </html>
