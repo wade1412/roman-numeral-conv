@@ -1,5 +1,5 @@
-import { MESSAGES } from "./messages";
-import { ROMAN_NUMERALS } from "./romanNumerals";
+import { MESSAGES } from "./messages.js";
+import { ROMAN_NUMERALS } from "./romanNumerals.js";
 const numberInput = document.getElementById("number");
 const convertBtn = document.getElementById("convert-btn");
 const output = document.getElementById("output");
@@ -35,3 +35,30 @@ const separateNumber = (number) => {
   }
   return (number = arr);
 };
+
+const arrToRoman = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = ROMAN_NUMERALS[arr[i]];
+  }
+  return arr.join("");
+};
+
+const convertInputToRoman = (input) => {
+  if (!inputCheck(input)) {
+    return;
+  }
+  let inputArr = separateNumber(input);
+  input = arrToRoman(inputArr);
+  output.innerHTML = `<p>${input}</p>`;
+};
+
+convertBtn.addEventListener("click", () => {
+  let userInput = numberInput.value;
+  convertInputToRoman(userInput);
+});
+numberInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    let userInput = numberInput.value;
+    convertInputToRoman(userInput);
+  }
+});

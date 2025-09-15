@@ -94,13 +94,13 @@ input::-webkit-inner-spin-button {
 .output {
   display: flex;
   width: min(80%, 500px);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--add-accent-color);
   height: auto;
-  text-align: center;
-  align-items: center;
+  justify-content: center;
   opacity: 1;
   transition: opacity 0.2s ease;
+  font-weight: bold;
   padding: 1rem;
 }
 
